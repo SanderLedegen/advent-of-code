@@ -1,5 +1,5 @@
-const fs = require('fs');
-let input = fs.readFileSync('./inputs/day-02.txt', 'utf-8');
+import { readFileSync } from 'fs';
+const input = readFileSync('2022/inputs/day-02.txt', 'utf-8');
 
 // A/X: Rock, B/Y: Paper, C/Z: Scissors
 // Loss: 0, Draw: 3, Win: 6

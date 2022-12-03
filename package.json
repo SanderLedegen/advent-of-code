@@ -1,0 +1,13 @@
+{
+  "name": "advent-of-code",
+  "version": "1.3.37",
+  "type": "module",
+  "description": "A collection of solutions for the challenges of Advent of Code",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SanderLedegen/advent-of-code.git"
+  },
+  "author": "Sander Ledegen",
+  "license": "MIT",
+  "homepage": "https://github.com/SanderLedegen/advent-of-code#readme"
+}

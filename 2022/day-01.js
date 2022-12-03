@@ -1,5 +1,5 @@
-const fs = require('fs');
-const input = fs.readFileSync('./inputs/day-01.txt', 'utf-8');
+import { readFileSync } from 'fs';
+const input = readFileSync('2022/inputs/day-01.txt', 'utf-8');
 
 const calsPerElf = (lines) => {
   return lines.reduce(
