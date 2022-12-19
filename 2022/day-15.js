@@ -1,22 +1,6 @@
 import { readFileSync } from 'fs';
-import assert from 'node:assert/strict';
 
-let input = readFileSync('2022/inputs/day-15.txt', 'utf-8');
-
-// input = `Sensor at x=2, y=18: closest beacon is at x=-2, y=15
-// Sensor at x=9, y=16: closest beacon is at x=10, y=16
-// Sensor at x=13, y=2: closest beacon is at x=15, y=3
-// Sensor at x=12, y=14: closest beacon is at x=10, y=16
-// Sensor at x=10, y=20: closest beacon is at x=10, y=16
-// Sensor at x=14, y=17: closest beacon is at x=10, y=16
-// Sensor at x=8, y=7: closest beacon is at x=2, y=10
-// Sensor at x=2, y=0: closest beacon is at x=2, y=10
-// Sensor at x=0, y=11: closest beacon is at x=2, y=10
-// Sensor at x=20, y=14: closest beacon is at x=25, y=17
-// Sensor at x=17, y=20: closest beacon is at x=21, y=22
-// Sensor at x=16, y=7: closest beacon is at x=15, y=3
-// Sensor at x=14, y=3: closest beacon is at x=15, y=3
-// Sensor at x=20, y=1: closest beacon is at x=15, y=3`;
+const input = readFileSync('2022/inputs/day-15.txt', 'utf-8');
 
 const manhattanDistance = (x1, y1, x2, y2) => {
   return Math.abs(x1 - x2) + Math.abs(y1 - y2);
@@ -59,7 +43,7 @@ function partOne(positions, rowToInspect) {
 function partTwo(positions, limit) {
   let result = undefined;
 
-  for (let row = 0; row <= limit && !result; row += 1) {
+  for (let row = 0; row <= limit; row += 1) {
     const ranges = [];
     
     for (let position of positions) {
@@ -81,14 +65,13 @@ function partTwo(positions, limit) {
       const range = ranges[ii];
       if (range[0] > reqMin + 1) {
         result = { x: reqMin + 1, y: row };
-        break;
       }
 
       reqMin = Math.max(reqMin, range[1]);
     }
   }
 
-  return BigInt(result.x) * 4_000_000n + BigInt(result.y)
+  return result.x * 4_000_000 + result.y;
 }
 
 const positions = input.split('\n').map((line) => {
@@ -103,4 +86,4 @@ const positions = input.split('\n').map((line) => {
 });
 
 console.log(partOne(positions, 2_000_000));
-console.log(partTwo(positions, 4_000_000)); // 11596484813582 too low
+console.log(partTwo(positions, 4_000_000));
