@@ -1,0 +1,9 @@
+{
+  "name": "aoc-js",
+  "version": "1.3.37",
+  "private": true,
+  "type": "module",
+  "description": "An uncomplete collection of solutions for the challenges of Advent of Code.",
+  "author": "Sander Ledegen",
+  "license": "MIT"
+}
